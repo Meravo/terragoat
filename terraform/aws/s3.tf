@@ -25,6 +25,9 @@ resource "aws_s3_bucket" "data" {
 
 resource "aws_s3_bucket" "data_log_bucket" {
   bucket = "data-log-bucket"
+  tags = {
+    yor_trace = "af68a42c-e771-40a7-992b-70cf7e68861c"
+  }
 }
 
 resource "aws_s3_bucket_logging" "data" {
@@ -39,7 +42,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "data" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "AES256"
+      sse_algorithm = "AES256"
     }
   }
 }
